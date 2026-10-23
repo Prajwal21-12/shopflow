@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ShopFlow — discover products and shop with ease.">
+  <title>ShopFlow | Online Store</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <a href="#" class="logo">Shop<span>Flow.</span></a>
+
+    <nav class="nav-links">
+      <a href="#products">Shop</a>
+      <a href="#products">Collections</a>
+    </nav>
+
+    <button id="cart-button" class="cart-button" aria-label="Open shopping cart">
+      🛒 Cart <span id="cart-count">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">YOUR EVERYDAY STORE</p>
+        <h1>Find your next<br>favorite thing.</h1>
+        <p>Discover quality picks for your everyday life.</p>
+        <a class="primary-button" href="#products">Explore products →</a>
+      </div>
+      <div class="hero-decoration" aria-hidden="true">✦</div>
+    </section>
+
+    <section id="products" class="products-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">OUR COLLECTION</p>
+          <h2>Explore products</h2>
+        </div>
+        <p id="product-count" class="muted">Loading products...</p>
+      </div>
+
+      <form id="search-form" class="search-form">
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Search products..."
+          aria-label="Search products"
+        >
+        <button type="submit" class="primary-button">Search</button>
+      </form>
+
+      <div id="category-filters" class="category-filters" aria-label="Filter products">
+        <button class="filter-button active" data-category="all" aria-pressed="true">All Products</button>
+        <button class="filter-button" data-category="electronics" aria-pressed="false">Electronics</button>
+        <button class="filter-button" data-category="jewelery" aria-pressed="false">Jewelry</button>
+        <button class="filter-button" data-category="clothing" aria-pressed="false">Clothing</button>
+      </div>
+
+      <p id="status-message" class="status-message" role="status" aria-live="polite">
+        Loading products...
+      </p>
+
+      <div id="product-grid" class="product-grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="#" class="logo">Shop<span>Flow.</span></a>
+    <p>Made with care. Powered by FakeStoreAPI.</p>
+  </footer>
+
+  <div id="drawer-overlay" class="drawer-overlay"></div>
+
+  <aside
+    id="cart-drawer"
+    class="cart-drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="cart-title"
+    aria-hidden="true"
+    inert
+  >
+    <div class="drawer-header">
+      <div>
+        <p class="eyebrow">YOUR SELECTION</p>
+        <h2 id="cart-title">Shopping cart</h2>
+      </div>
+      <button id="close-cart" class="icon-button" aria-label="Close cart">✕</button>
+    </div>
+
+    <div id="cart-items" class="cart-items"></div>
+
+    <div class="cart-summary">
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <strong id="cart-subtotal">₹0.00</strong>
+      </div>
+      <div class="summary-row">
+        <span>Shipping</span>
+        <strong id="cart-shipping">₹0.00</strong>
+      </div>
+      <div class="summary-row">
+        <span>Tax (5%)</span>
+        <strong id="cart-tax">₹0.00</strong>
+      </div>
+      <div class="summary-row total-row">
+        <span>Total</span>
+        <strong id="cart-total">₹0.00</strong>
+      </div>
+      <button id="checkout-button" class="primary-button checkout-button" disabled>
+        Proceed to checkout
+      </button>
+      <p class="secure-note">Demo checkout · No real payment required</p>
+    </div>
+  </aside>
+
+  <div id="checkout-modal" class="modal-overlay" hidden>
+    <section class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+      <button id="close-modal" class="icon-button modal-close" aria-label="Close checkout">✕</button>
+      <div class="success-icon">✓</div>
+      <h2 id="checkout-title">Order confirmed!</h2>
+      <p>Your demo order has been placed successfully.</p>
+      <p id="order-summary" class="order-summary"></p>
+      <button id="continue-shopping" class="primary-button">Continue shopping</button>
+    </section>
+  </div>
+
+</body>
+</html>
